@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("WhatsApp Webhook Server is running.");
+});
+
 app.use(express.json());
 
 const VERIFY_TOKEN = "test123";
