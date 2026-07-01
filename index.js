@@ -6,7 +6,7 @@ app.use(express.json());
 const VERIFY_TOKEN = "test123";
 
 app.get("/", (req, res) => {
-  res.send("WhatsApp Webhook Server is running.");
+  //res.send("WhatsApp Webhook Server is running.");
   const { 'hub.mode': mode, 'hub.challenge': challenge, 'hub.verify_token': VERIFY_TOKEN } = req.query;
 
   if (mode === 'subscribe' && VERIFY_TOKEN === verifyToken) {
