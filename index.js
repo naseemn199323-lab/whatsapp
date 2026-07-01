@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
 
 app.use(express.json());
 
-const VERIFY_TOKEN = "EAAStQO5uZANsBR0cWBwBszD723rqauo0uLQdZC9mvZAXiA1ClMIbCUekhAfPKWfNnSDwJkdwHQOApewigU6KCAiyVTh39gq7CZArM7DgnA4pGonT4ZBAOnmhyhy5vfPO5R2HrAHiPD2ohsFdNVbFkOwXZB15WjMfsRLpHcZBsJLlnCcu0ZCsrQbXSV1BT8okLdiykk9YnZBZCgUDW0DMDhVQHq7dlvp2i1S6a2cvid7maivZB9KxZB4B3Q7jjtWhoIHDeOCqjg3CjzvnYgetZBpRvQtVwsjXG";
+const VERIFY_TOKEN = "test123";
 
 // Webhook verification (Meta calls this)
 app.get("/webhook", (req, res) => {
