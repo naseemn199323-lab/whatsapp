@@ -1,13 +1,29 @@
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("WhatsApp Webhook Server is running.");
-});
-
 app.use(express.json());
 
 const VERIFY_TOKEN = "test123";
+
+app.get("/", (req, res) => {
+  res.send("WhatsApp Webhook Server is running.");
+  const { 'hub.mode': mode, 'hub.challenge': challenge, 'hub.verify_token': VERIFY_TOKEN } = req.query;
+
+  if (mode === 'subscribe' && VERIFY_TOKEN === verifyToken) {
+    console.log('WEBHOOK VERIFIED');
+    res.status(200).send(challenge);
+  } else {
+    res.status(403).end();
+  }
+});
+
+// Route for POST requests
+app.post('/', (req, res) => {
+  const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
+  console.log(`\n\nWebhook received ${timestamp}\n`);
+  console.log(JSON.stringify(req.body, null, 2));
+  res.status(200).end();
+});
 
 // Webhook verification (Meta calls this)
 app.get("/webhook", (req, res) => {
